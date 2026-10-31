@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Octhor Festa · Bio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f2; --fg:#14141a; --muted:#6b6b76; --card:#ffffff; --line:rgba(20,20,26,.12);
+  --a:#7c5cff; --b:#ff5c8a;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b0b10; --fg:#f2f2f5; --muted:#9a9aa8; --card:#15151d; --line:rgba(255,255,255,.12);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b0b10; --fg:#f2f2f5; --muted:#9a9aa8; --card:#15151d; --line:rgba(255,255,255,.12);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:-20% -20% auto -20%;height:70vh;background:radial-gradient(closest-side,var(--a),transparent 70%);opacity:.18;filter:blur(40px);z-index:-1;animation:float 14s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:auto -20% -20% auto;width:70vw;height:60vh;background:radial-gradient(closest-side,var(--b),transparent 70%);opacity:.14;filter:blur(50px);z-index:-1;animation:float 18s ease-in-out infinite alternate-reverse}
+@keyframes float{to{transform:translate(6vw,4vh) scale(1.15)}}
+
+main{width:100%;max-width:640px;margin:0 auto;padding:0 20px}
+@media (min-width:900px){main{max-width:880px}}
+
+/* Hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;gap:18px;
+  transform:translateY(calc(var(--p,0)*-40px));opacity:calc(1 - var(--p,0)*.9)}
+.photo{position:relative;width:min(62vw,240px);aspect-ratio:1;border-radius:50%;padding:5px;background:conic-gradient(from 0deg,var(--a),var(--b),var(--a));animation:spin 10s linear infinite}
+.photo>.inner{position:absolute;inset:5px;border-radius:50%;background:var(--card);overflow:hidden;animation:spin 10s linear infinite reverse;display:grid;place-items:center;font-size:4rem;font-weight:700;color:var(--muted)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{margin:6px 0 0;font-size:clamp(2rem,7vw,3.4rem);letter-spacing:-.03em;line-height:1.05}
+.tag{margin:0;color:var(--muted);font-size:clamp(1rem,3.6vw,1.2rem);max-width:30ch}
+.hint{position:absolute;bottom:max(24px,env(safe-area-inset-bottom,0px));left:50%;translate:-50% 0;color:var(--muted);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hint i{width:1px;height:34px;background:linear-gradient(var(--fg),transparent);animation:drop 1.6s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Redes */
+.links{display:grid;gap:14px;padding:12vh 0 10vh}
+.link{display:flex;align-items:center;gap:16px;padding:20px 22px;border:1px solid var(--line);border-radius:20px;background:var(--card);color:inherit;text-decoration:none;font-size:1.15rem;font-weight:500;transition:transform .25s,border-color .25s,box-shadow .25s}
+.link svg{width:28px;height:28px;flex:none;fill:currentColor}
+.link span{flex:1}
+.link em{font-style:normal;color:var(--muted);transition:transform .25s}
+.link:hover,.link:focus-visible{transform:translateY(-3px);border-color:var(--a);box-shadow:0 10px 30px -12px var(--a);outline:none}
+.link:hover em{transform:translateX(4px)}
+@media (min-width:700px){.links{grid-template-columns:repeat(3,1fr)}.link{flex-direction:column;align-items:flex-start;gap:28px;padding:26px}.link span{flex:none}.link em{display:none}}
+
+/* Vídeos */
+h2{font-size:clamp(1.6rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 24px}
+.videos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding-bottom:12vh}
+.video{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,var(--a),var(--b));cursor:pointer;padding:0;color:#fff;font:inherit;text-align:left}
+.video img,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.video .t{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-weight:500;font-size:.95rem}
+.video .play{position:absolute;top:50%;left:50%;translate:-50% -50%;width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .25s}
+.video:hover .play{transform:scale(1.12)}
+.video .play::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 0 40px}
+
+/* Revelar ao rolar */
+.js .reveal{opacity:0;transform:translateY(40px) scale(.97);filter:blur(6px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1),filter .8s;transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;filter:none;transition:none}
+  .hero{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="photo"><div class="inner">O<img src="foto.jpg" alt="Foto de perfil" onerror="this.remove()"></div></div>
+    <h1>Octhor Festa</h1>
+    <p class="tag">Apaixonado por carros, motores e boas histórias sobre quatro rodas.</p>
+    <div class="hint">role<i></i></div>
+  </section>
+
+  <section class="links" aria-label="Redes sociais">
+    <a class="link reveal" style="--d:0s" href="https://www.youtube.com/@octhorfesta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9 .5 12 .5 12s0 3 .5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8zM9.8 15.2V8.8l5.6 3.2z"/></svg>
+      <span>YouTube</span><em>→</em>
+    </a>
+    <a class="link reveal" style="--d:.12s" href="https://www.instagram.com/octhor.f/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+      <span>Instagram</span><em>→</em>
+    </a>
+    <a class="link reveal" style="--d:.24s" href="https://www.tiktok.com/@octhorfesta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2h-3.2v13.2a2.8 2.8 0 1 1-2.8-2.8c.3 0 .6 0 .9.1V9.2a6 6 0 1 0 5.1 5.9V8.6a7.6 7.6 0 0 0 4.4 1.4V6.8A4.4 4.4 0 0 1 16.5 2z"/></svg>
+      <span>TikTok</span><em>→</em>
+    </a>
+  </section>
+
+  <section aria-label="Vídeos">
+    <h2 class="reveal">Vídeos em destaque</h2>
+    <div class="videos" id="videos"></div>
+  </section>
+
+  <footer class="reveal">© <span id="y"></span> Octhor Festa</footer>
+</main>
+
+<script>
+document.documentElement.classList.add("js");
+document.getElementById("y").textContent=new Date().getFullYear();
+
+const CANAL="https://www.youtube.com/@octhorfesta";
+
+/* Vídeos mostrados só se o videos.json ainda não existir ou falhar */
+const RESERVA=[
+  {id:"",title:"Ver os vídeos no YouTube"},
+  {id:"",title:"Ver os vídeos no YouTube"},
+  {id:"",title:"Ver os vídeos no YouTube"}
+];
+
+/* Revelar ao rolar */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+},{threshold:.15,rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+const box=document.getElementById("videos");
+
+function cartao(v,i){
+  const b=document.createElement("button");
+  b.className="video reveal";
+  b.style.setProperty("--d",(i*.12)+"s");
+  b.setAttribute("aria-label","Reproduzir: "+v.title);
+  if(v.id){
+    const img=new Image();
+    img.src="https://i.ytimg.com/vi/"+v.id+"/hqdefault.jpg";
+    img.alt="";img.loading="lazy";
+    img.onerror=()=>img.remove();
+    b.appendChild(img);
+  }
+  b.insertAdjacentHTML("beforeend",'<span class="play"></span><span class="t"></span>');
+  b.querySelector(".t").textContent=v.title;
+  b.addEventListener("click",()=>{
+    if(!v.id){window.open(CANAL,"_blank","noopener");return;}
+    const f=document.createElement("iframe");
+    f.src="https://www.youtube-nocookie.com/embed/"+v.id+"?autoplay=1&rel=0";
+    f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen=true;f.title=v.title;
+    const d=document.createElement("div");
+    d.className="video in";d.appendChild(f);
+    b.replaceWith(d);
+  });
+  return b;
+}
+
+/* Lê o videos.json (atualizado sozinho pelo GitHub) */
+async function carregarVideos(){
+  let lista=RESERVA;
+  try{
+    const r=await fetch("videos.json",{cache:"no-cache"});
+    if(r.ok){
+      const d=await r.json();
+      const ok=Array.isArray(d)?d.filter(v=>v&&/^[\w-]{11}$/.test(v.id)).slice(0,3):[];
+      if(ok.length)lista=ok;
+    }
+  }catch(e){}
+  box.textContent="";
+  lista.forEach((v,i)=>{const c=cartao(v,i);box.appendChild(c);io.observe(c);});
+}
+carregarVideos();
+
+/* Hero some suavemente ao rolar */
+const root=document.documentElement;let tick=false;
+addEventListener("scroll",()=>{
+  if(tick)return;tick=true;
+  requestAnimationFrame(()=>{
+    const p=Math.min(1,scrollY/(innerHeight*.7));
+    root.style.setProperty("--p",p.toFixed(3));tick=false;
+  });
+},{passive:true});
+</script>
+</body>
+</html>
