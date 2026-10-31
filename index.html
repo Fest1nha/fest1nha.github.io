@@ -4,32 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Octhor Festa · Bio</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f5f5f2; --fg:#14141a; --muted:#6b6b76; --card:#ffffff; --line:rgba(20,20,26,.12);
-  --a:#7c5cff; --b:#ff5c8a;
+  --a:#8e98a6; --b:#e11d1d;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0b0b10; --fg:#f2f2f5; --muted:#9a9aa8; --card:#15151d; --line:rgba(255,255,255,.12);
+    --bg:#0b0b10; --fg:#f2f2f5; --muted:#9a9aa8; --card:#15151d; --line:rgba(255,255,255,.12); --a:#cfd5dd; --b:#ff2a2a;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0b0b10; --fg:#f2f2f5; --muted:#9a9aa8; --card:#15151d; --line:rgba(255,255,255,.12);
+  --bg:#0b0b10; --fg:#f2f2f5; --muted:#9a9aa8; --card:#15151d; --line:rgba(255,255,255,.12); --a:#cfd5dd; --b:#ff2a2a;
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:-20% -20% auto -20%;height:70vh;background:radial-gradient(closest-side,var(--a),transparent 70%);opacity:.18;filter:blur(40px);z-index:-1;animation:float 14s ease-in-out infinite alternate}
-body::after{content:"";position:fixed;inset:auto -20% -20% auto;width:70vw;height:60vh;background:radial-gradient(closest-side,var(--b),transparent 70%);opacity:.14;filter:blur(50px);z-index:-1;animation:float 18s ease-in-out infinite alternate-reverse}
+body::before{content:"";position:fixed;inset:-20% -20% auto -20%;height:70vh;background:radial-gradient(closest-side,var(--a),transparent 70%);opacity:.22;filter:blur(40px);z-index:-1;animation:float 14s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:auto -20% -20% auto;width:70vw;height:60vh;background:radial-gradient(closest-side,var(--b),transparent 70%);opacity:.3;filter:blur(50px);z-index:-1;animation:float 18s ease-in-out infinite alternate-reverse}
 @keyframes float{to{transform:translate(6vw,4vh) scale(1.15)}}
 
 main{width:100%;max-width:640px;margin:0 auto;padding:0 20px}
@@ -38,7 +41,7 @@ main{width:100%;max-width:640px;margin:0 auto;padding:0 20px}
 /* Hero */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;gap:18px;
   transform:translateY(calc(var(--p,0)*-40px));opacity:calc(1 - var(--p,0)*.9)}
-.photo{position:relative;width:min(62vw,240px);aspect-ratio:1;border-radius:50%;padding:5px;background:conic-gradient(from 0deg,var(--a),var(--b),var(--a));animation:spin 10s linear infinite}
+.photo{position:relative;width:min(62vw,240px);aspect-ratio:1;border-radius:50%;padding:5px;background:conic-gradient(from 0deg,#f4f6f9,var(--b),#e3e7ec,#7d8794,var(--b),#f4f6f9);animation:spin 10s linear infinite}
 .photo>.inner{position:absolute;inset:5px;border-radius:50%;background:var(--card);overflow:hidden;animation:spin 10s linear infinite reverse;display:grid;place-items:center;font-size:4rem;font-weight:700;color:var(--muted)}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -54,14 +57,21 @@ h1{margin:6px 0 0;font-size:clamp(2rem,7vw,3.4rem);letter-spacing:-.03em;line-he
 .link svg{width:28px;height:28px;flex:none;fill:currentColor}
 .link span{flex:1}
 .link em{font-style:normal;color:var(--muted);transition:transform .25s}
-.link:hover,.link:focus-visible{transform:translateY(-3px);border-color:var(--a);box-shadow:0 10px 30px -12px var(--a);outline:none}
+.link{--glow:var(--a)}
+.link:hover,.link:focus-visible{transform:translateY(-3px);box-shadow:0 12px 32px -10px var(--glow);outline:none}
 .link:hover em{transform:translateX(4px)}
+.yt,.ig,.tt{color:#fff;border-color:transparent}
+.yt em,.ig em,.tt em{color:rgba(255,255,255,.85)}
+.yt{background:#ff0000;--glow:#ff0000}
+.ig{background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);--glow:#dc2743;background-origin:border-box}
+.tt{background:#000;--glow:#25f4ee;border-color:rgba(255,255,255,.16)}
+.tt svg{filter:drop-shadow(-1.5px -1.5px 0 #25f4ee) drop-shadow(1.5px 1.5px 0 #fe2c55)}
 @media (min-width:700px){.links{grid-template-columns:repeat(3,1fr)}.link{flex-direction:column;align-items:flex-start;gap:28px;padding:26px}.link span{flex:none}.link em{display:none}}
 
 /* Vídeos */
 h2{font-size:clamp(1.6rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 24px}
 .videos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding-bottom:12vh}
-.video{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,var(--a),var(--b));cursor:pointer;padding:0;color:#fff;font:inherit;text-align:left}
+.video{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#aeb5bf,#6b7480 45%,#c4161c);cursor:pointer;padding:0;color:#fff;font:inherit;text-align:left}
 .video img,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
 .video .t{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-weight:500;font-size:.95rem}
 .video .play{position:absolute;top:50%;left:50%;translate:-50% -50%;width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .25s}
@@ -89,15 +99,15 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 0 40px}
   </section>
 
   <section class="links" aria-label="Redes sociais">
-    <a class="link reveal" style="--d:0s" href="https://www.youtube.com/@octhorfesta" target="_blank" rel="noopener">
+    <a class="link yt reveal" style="--d:0s" href="https://www.youtube.com/@octhorfesta" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9 .5 12 .5 12s0 3 .5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8zM9.8 15.2V8.8l5.6 3.2z"/></svg>
       <span>YouTube</span><em>→</em>
     </a>
-    <a class="link reveal" style="--d:.12s" href="https://www.instagram.com/octhor.f/" target="_blank" rel="noopener">
+    <a class="link ig reveal" style="--d:.12s" href="https://www.instagram.com/octhor.f/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
       <span>Instagram</span><em>→</em>
     </a>
-    <a class="link reveal" style="--d:.24s" href="https://www.tiktok.com/@octhorfesta" target="_blank" rel="noopener">
+    <a class="link tt reveal" style="--d:.24s" href="https://www.tiktok.com/@octhorfesta" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2h-3.2v13.2a2.8 2.8 0 1 1-2.8-2.8c.3 0 .6 0 .9.1V9.2a6 6 0 1 0 5.1 5.9V8.6a7.6 7.6 0 0 0 4.4 1.4V6.8A4.4 4.4 0 0 1 16.5 2z"/></svg>
       <span>TikTok</span><em>→</em>
     </a>
